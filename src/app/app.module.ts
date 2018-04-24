@@ -8,6 +8,7 @@ import { GoalDetailsComponent } from './goal-details/goal-details.component';
 import { StrikethroughDirective } from './strikethrough.directive';
 import { DateCountPipe } from './date-count.pipe';
 import { GoalFormComponent } from './goal-form/goal-form.component';
+import {GoalService} from './goals/goal.service';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { GoalFormComponent } from './goal-form/goal-form.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [GoalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
