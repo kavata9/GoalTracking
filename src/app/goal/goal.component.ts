@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 // import {Goal} from '../goals';
 import {GoalService} from '../goals/goal.service';
 import {Goal} from '../goal';
+import {AlertsService} from '../alert-service/alerts.service'
+import {HttpClient} from '@angular/common/http'
+
 
 @Component({
   selector: 'app-goal',
@@ -11,6 +14,9 @@ import {Goal} from '../goal';
 })
 // export class GoalComponent implements OnInit {
   export class GoalComponent implements OnInit {
+
+  goals:Goal[];
+  alertService:AlertsService;
     // goals = Goal;\
 
     // goals = [
@@ -29,12 +35,12 @@ import {Goal} from '../goal';
     if (isComplete){
         let toDelete=confirm(`Are you sure you want to delete ${this.goals[index].name}`)
         if(toDelete){
-            this.goals.splice(index,1);
-            // this.alertService.alertMe('Goal has been delated');
-        }
+                this.goals.splice(index,1)
+                this.alertService.alertMe("Goal has been deleted")
+            }
 
-}
-}
+        }
+    }
 
 
     toogleDetails(index){
@@ -47,10 +53,11 @@ import {Goal} from '../goal';
         goal.completeDate = new Date(goal.completeDate)
         this.goals.push (goal);
     }
-        goals:Goal[];
-    constructor(goalService:GoalService) {
-    this.goals = goalService.getGoals();
-     }
+
+    constructor(goalService:GoalService,alertService:AlertsService) {
+  this.goals = goalService.getGoals();
+  this.alertService = alertService;//make the service available to the class
+   }
     ngOnInit() {
 
     }
