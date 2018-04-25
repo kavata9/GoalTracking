@@ -40,3 +40,4 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+/home/agnes/Documents/Core/goals/Goals/src/environments/environment.ts
