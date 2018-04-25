@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {AlertsService} from './alert-service/alerts.service'
 import {HttpClientModule} from '@angular/common/http'
+import { NgProgressModule } from '@ngx-progressbar/core';
+import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
 
 import { AppComponent } from './app.component';
 import { GoalComponent } from './goal/goal.component';
@@ -10,6 +12,7 @@ import { GoalDetailsComponent } from './goal-details/goal-details.component';
 import { StrikethroughDirective } from './strikethrough.directive';
 import { DateCountPipe } from './date-count.pipe';
 import { GoalFormComponent } from './goal-form/goal-form.component';
+
 // import {GoalService} from './goals/goal.service';
 // import {HttpClientModule} from @
 
@@ -26,7 +29,9 @@ import { GoalFormComponent } from './goal-form/goal-form.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgProgressModule.forRoot(),// normal progress bar
+    NgProgressHttpClientModule, // progress bar to load http requests
   ],
   providers: [AlertsService], // Add service to providers
   bootstrap: [AppComponent]
