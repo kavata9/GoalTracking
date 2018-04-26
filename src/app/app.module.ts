@@ -13,9 +13,13 @@ import { GoalDetailsComponent } from './goal-details/goal-details.component';
 import { StrikethroughDirective } from './strikethrough.directive';
 import { DateCountPipe } from './date-count.pipe';
 import { GoalFormComponent } from './goal-form/goal-form.component';
-
-// import {GoalService} from './goals/goal.service';
-// import {HttpClientModule} from @
+import { AboutComponent } from './about/about.component';
+import { RouterModule, Routes } from '@angular/router';
+// Defining routes
+const routes:Routes=[
+  {path:"goals",component:GoalComponent},
+  {path:"about",component:AboutComponent}
+]
 
 
 @NgModule({
@@ -25,7 +29,8 @@ import { GoalFormComponent } from './goal-form/goal-form.component';
     GoalDetailsComponent,
     StrikethroughDirective,
     DateCountPipe,
-    GoalFormComponent
+    GoalFormComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +38,7 @@ import { GoalFormComponent } from './goal-form/goal-form.component';
     HttpClientModule,
     NgProgressModule.forRoot(),// normal progress bar
     NgProgressHttpModule, // progress bar to load http requests
+    RouterModule.forRoot(routes)
   ],
   providers: [AlertsService], // Add service to providers
   bootstrap: [AppComponent]
